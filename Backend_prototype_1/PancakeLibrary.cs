@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Nethereum.ABI;
 using Nethereum.Web3;
-
+using System.Threading.Tasks;
 
 namespace Backend_prototype_1
 {
@@ -50,7 +50,7 @@ namespace Backend_prototype_1
 
         }
 
-        internal static uint[] getAmountsOut(string factory, uint amountIn, string[] path)
+        internal static async Task<uint[]> getAmountsOut(string factory, uint amountIn, string[] path)
         {
             if (path.Length < 2)
                 throw new Exception("invalid path");
@@ -58,24 +58,25 @@ namespace Backend_prototype_1
             amounts[0] = amountIn;
             for (int i = 0; i < path.Length - 1; i++)
             {
-                uint[] reserves = getReserves(factory, path[i], path[i + 1]);
+                uint[] reserves = await getReserves(factory, path[i], path[i + 1]);
                 uint reserveIn = reserves[0];
                 uint reserveOut = reserves[1];
                 amounts[i + 1] = getAmountOut(amounts[i], reserveIn, reserveOut);
             }
+            return amounts;
 
         }
         
-        internal static uint[] getReserves(string factory, string tokenA, string tokenB)
+        internal static async Task<uint[]> getReserves(string factory, string tokenA, string tokenB)
         {
             string token0 = sortTokens(tokenA, tokenB)[0];
             pairFor(factory, tokenA, tokenB);//this seems retarded af
             Web3 web3 = new Web3("http://localhost:8545/");
             Nethereum.Contracts.Contract pairContract = web3.Eth.GetContract(File.ReadAllText("abi.json"), PancakeLibrary.pairFor(factory, tokenA, tokenB));
-            pairContract.GetFunction("getReseves").CallAsync<uint>(new object[0]);//longshot, remember async proggramming
+            uint[] retU = await pairContract.GetFunction("getReserves").CallAsync<uint[]>(new object[0]);//longshot, remember async proggramming
 
             //return reserves
-            return new uint[] { 0, 1 };//this is just for visual studio to shut the fuck up.
+            return retU;//this is just for visual studio to shut the fuck up.
         }
 
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Nethereum.Web3;
+using System.Threading.Tasks;
 
 namespace Backend_prototype_1
 {
@@ -16,14 +17,14 @@ namespace Backend_prototype_1
             this.WBNB = _WBNB;
             this.abi = _abi;
         }
-        public uint[] swapExactETHForTokens(uint amountOutMin, string[] path, string to, uint deadline, uint value )//high level function, call to create order, maybe return bool?
+        public async Task<uint[]> swapExactETHForTokens(uint amountOutMin, string[] path, string to, uint deadline, uint value )//high level function, call to create order, maybe return bool?
         {
             //the value param is insted of the msg object in the blockchain.
 
             //make initial transaction.
             if (path[0] != WBNB)
                 throw new Exception("invalid path");
-            uint[] amounts = PancakeLibrary.getAmountsOut(factory, value, path);
+            uint[] amounts = await PancakeLibrary.getAmountsOut(factory, value, path);
             //do amounts check later here
             //not sure that the first deposit is needed... seems as if it deposits to router.
             //insert lotsa random transactions here.

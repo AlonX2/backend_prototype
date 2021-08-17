@@ -5733,23 +5733,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\אלון\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\talo5\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\אלון\\source\\repos\\Backend_prototype_1\\Backend_prototype_1\\Backend_prototype_1.csproj",
+      "projectUniqueName": "E:\\ConsoleApps\\CsConsoleApps\\Backend_prot_1_cryp\\backend_prototype\\Backend_prototype_1\\Backend_prototype_1.csproj",
       "projectName": "Backend_prototype_1",
-      "projectPath": "C:\\Users\\אלון\\source\\repos\\Backend_prototype_1\\Backend_prototype_1\\Backend_prototype_1.csproj",
-      "packagesPath": "C:\\Users\\אלון\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\אלון\\source\\repos\\Backend_prototype_1\\Backend_prototype_1\\obj\\",
+      "projectPath": "E:\\ConsoleApps\\CsConsoleApps\\Backend_prot_1_cryp\\backend_prototype\\Backend_prototype_1\\Backend_prototype_1.csproj",
+      "packagesPath": "C:\\Users\\talo5\\.nuget\\packages\\",
+      "outputPath": "E:\\ConsoleApps\\CsConsoleApps\\Backend_prot_1_cryp\\backend_prototype\\Backend_prototype_1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\אלון\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\talo5\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5799,7 +5795,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   },
