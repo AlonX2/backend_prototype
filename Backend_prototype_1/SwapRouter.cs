@@ -39,12 +39,17 @@ namespace Backend_prototype_1
                 string output = path[i + 1];
                 string token0 = PancakeLibrary.sortTokens(input, output)[0];//the first token of the pair
                 uint amountOut = amounts[i + 1];
-                uint amount0Out = 1;//should init these inside the "WTF if block". for now I put random values in these.
-                uint amount1Out = 1;
+                uint amount0Out; //should init these inside the "WTF if block". for now I put random values in these.
+                uint amount1Out;
                 if(input == token0)//??
                 {
-                    //wtf should i put here
-
+                    amount0Out = 0;
+                    amount1Out = amountOut;
+                }
+                else
+                {
+                    amount0Out = amountOut;
+                    amount1Out = 0;
                 }
                 string to = i < path.Length - 2 ? PancakeLibrary.pairFor(factory, output, path[i + 2]) : _to; // copy-pasted with some changes.
                 Web3 web3 = new Web3("http://localhost:8545/");
