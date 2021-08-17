@@ -74,9 +74,7 @@ namespace Backend_prototype_1
             Web3 web3 = new Web3("http://localhost:8545/");
             Nethereum.Contracts.Contract pairContract = web3.Eth.GetContract(File.ReadAllText("abi.json"), PancakeLibrary.pairFor(factory, tokenA, tokenB));
             uint[] retU = await pairContract.GetFunction("getReserves").CallAsync<uint[]>(new object[0]);//longshot, remember async proggramming
-
-            //return reserves
-            return retU;//this is just for visual studio to shut the fuck up.
+            return retU;
         }
 
 
