@@ -27,9 +27,9 @@ namespace Backend_prototype_1
         internal static string pairFor(string factory, string tokenA, string tokenB)  
 
         {
-            string token0 = tokenA;
-            string token1 = tokenB;
-            // sort the tokens first.
+            string[] sortedTokens = sortTokens(tokenA, tokenB);
+            string token0 = sortedTokens[0];
+            string token1 = sortedTokens[1];
             ABIEncode abi = new ABIEncode();
             object[] tokens = { token0, token1 };
             object[] data = { "ff", factory, abi.GetSha3ABIEncoded(abi.GetABIEncodedPacked(tokens)), "d0d4c4cd0848c93cb4fd1f498d7013ee6bfb25783ea21593d5834f5d250ece66"};
